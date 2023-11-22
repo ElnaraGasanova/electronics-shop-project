@@ -2,6 +2,7 @@
 import os
 os.path.join('src', 'items.csv')
 from src.item import Item
+from src.phone import Phone
 
 
 def test_item():
@@ -47,3 +48,12 @@ def test_str():
     """Тест для __str__"""
     item1 = Item('Смартфон', 10000, 20)
     assert str(item1) == 'Смартфон'
+
+def test_add():
+    """Тест для __add__"""
+    phone1 = Phone("iPhone 14", 120000, 5, 2)
+    item1 = Item("Смартфон", 10000, 20)
+    assert item1.quantity + phone1.quantity == 25
+    assert item1.price + phone1.price == 130000
+    assert item1.quantity + item1.quantity == 40
+    assert phone1.quantity + phone1.quantity == 10

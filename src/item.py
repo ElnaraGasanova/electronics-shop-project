@@ -29,6 +29,10 @@ class Item:
     def __str__(self):
         return f'{self.__name}'
 
+    def __add__(self, other):
+        """"Метод реализации оператора сложения экземпляров класса
+        `Phone` и `Item` по количеству товара в магазине."""
+        return self.quantity + other.quantity
 
     @property
     def name(self):
