@@ -38,7 +38,13 @@ def test_add(phone1):
     assert phone1.quantity + phone1.quantity == 10
 
 
-def chek_number_of_sim():
+def test_number_of_sim_setter():
+    '''Проверка количества сим карт'''
+    phone = Phone("test1", 120000, 5, 2)
+    phone.number_of_sim = 2
+    assert phone.number_of_sim == 2
     phone1 = Phone("iPhone 14", 120000, 5, 2)
-    assert phone1.chek_number_of_sim == 0
+
     # ValueError: Количество физических SIM-карт должно быть целым числом больше нуля.
+    #assert phone1.number_of_sim == 0
+

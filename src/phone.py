@@ -24,25 +24,13 @@ class Phone(Item):
             raise ValueError("Нельзя сложить `Phone` или `Item` с экземплярами не `Phone` или `Item` классов.")
         return self.quantity + other.quantity
 
-    def chek_number_of_sim(self, number_of_sim):
-        """Проверка количества сим-карт"""
-        self.number_of_sim = number_of_sim
-        if number_of_sim <= 0:
-            print(f'ValueError: Количество физических SIM-карт должно быть целым числом больше нуля.')
-        return self.number_of_sim
 
+    @property
+    def number_of_sim(self):
+        return self.__number_of_sim
 
-    # @classmethod
-    # def chek_number_of_sim(self, number_of_sim):
-    #     """Проверка количества сим-карт"""
-    #     if type(number_of_sim) != int or number_of_sim <= 0:
-    #         raise Exception('Количество физических SIM-карт должно быть целым числом больше нуля.')
-    #
-    # @property
-    # def num_of_sim(self):
-    #     return self.num_of_sim
-    #
-    # @num_of_sim.setter
-    # def num_of_sim(self, number_of_sim):
-    #     self.chek_number_of_sim(number_of_sim)
-    #     self.num_of_sim = number_of_sim
+    @number_of_sim.setter
+    def number_of_sim(self, num_sim):
+        if not isinstance(num_sim, int) or num_sim <= 0:
+            raise ValueError('Количество физических SIM-карт должно быть целым числом больше нуля')
+        self.__number_of_sim = num_sim
