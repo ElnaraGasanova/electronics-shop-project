@@ -15,12 +15,12 @@ class MixinLanguage:
 
     def change_lang(self):
         '''Функция для изменения раскладки клавиатуры'''
-        if self.__language == "EN":
-            self.__language = "RU"
+        if self.__language.upper() == 'EN':
+            self.__language = 'RU'
             return self
-        else:
-            self.__language = "EN"
-            return self
+        if self.__language.upper() == 'RU':
+            self.__language = 'EN'
+        return self
 
 
 class Keyboard(MixinLanguage, Item):
@@ -29,5 +29,5 @@ class Keyboard(MixinLanguage, Item):
         super().__init__(name, price, quantity)
         self.__language = language
         MixinLanguage.__init__(self, name, price, quantity)
-        if self.__language.upper() != "EN" and self.__language.upper() != "RU":
+        if self.__language != "EN" and self.__language != "RU":
             raise ValueError('AttributeError: property "language" of "Keyboard" object has no setter')
