@@ -5,9 +5,9 @@ class MixinLanguage:
     '''Класс-миксин, добавляет функционал
     по изменению раскладки клавиатуры, где
     по умолчанию - раскладка "EN" '''
-    def __init__(self, name: str, price: float, quantity: int, language="EN"):
+    def __init__(self, name: str, price: float, quantity: int):
         super().__init__(name, price, quantity)
-        self.__language = language
+        self.__language = "EN"
 
     @property
     def language(self):
@@ -25,9 +25,10 @@ class MixinLanguage:
 
 class Keyboard(MixinLanguage, Item):
     '''Класс Keyboard, наследуемый от MixinLanguage и Item'''
-    def __init__(self, name: str, price: float, quantity: int, language="EN"):
-        super().__init__(name, price, quantity)
-        self.__language = language
-        MixinLanguage.__init__(self, name, price, quantity)
-        if self.__language != "EN" and self.__language != "RU":
-            raise ValueError('AttributeError: property "language" of "Keyboard" object has no setter')
+    pass
+    # def __init__(self, name: str, price: float, quantity: int):
+    #     super().__init__(name, price, quantity)
+        # self.__language = "EN"
+        # MixinLanguage.__init__(self, name, price, quantity)
+        # if self.__language != "EN" and self.__language != "RU":
+        #     raise ValueError('AttributeError: property "language" of "Keyboard" object has no setter')
