@@ -26,9 +26,4 @@ class MixinLanguage:
 class Keyboard(MixinLanguage, Item):
     '''Класс Keyboard, наследуемый от MixinLanguage и Item'''
     pass
-    # def __init__(self, name: str, price: float, quantity: int):
-    #     super().__init__(name, price, quantity)
-        # self.__language = "EN"
-        # MixinLanguage.__init__(self, name, price, quantity)
-        # if self.__language != "EN" and self.__language != "RU":
-        #     raise ValueError('AttributeError: property "language" of "Keyboard" object has no setter')
+
